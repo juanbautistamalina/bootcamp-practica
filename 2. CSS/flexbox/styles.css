@@ -1,0 +1,26 @@
+
+
+.flex-container{
+    display: flex;
+    flex-direction: row;
+    /* height: 100vh; */
+    flex-wrap: wrap;
+    justify-content: center;
+    /* align-items: end; */
+    /* align-content: center; */
+}
+
+.flex-container div{   
+    margin: 5px; 
+    background: lightblue;
+    min-width: 100px;
+    height: 100px;
+}
+
+#elemento1{
+    background-color: orange;
+}
+
+#elemento4{
+    background-color: green;
+}

@@ -1,0 +1,20 @@
+p{
+    color: darkgoldenrod;
+    font-size: 40px;
+}
+
+.texto-grupo{
+    color: purple
+}
+
+#texto-unico{
+    color: red;
+}
+
+.texto-grupo span{
+    color: deeppink;
+}
+
+#texto-unico span{
+    color: blue;
+}

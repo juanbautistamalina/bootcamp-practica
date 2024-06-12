@@ -1,0 +1,30 @@
+body{
+  display: flex;
+  justify-content: center;
+}
+
+
+.caja-azul,
+.caja-roja {
+  width: 100px;
+  height: 100px;
+  display: inline-block;
+  background-color: lightblue;
+  font-weight: bold;
+  font-family: sans-serif;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.caja-azul{
+  box-sizing: border-box;
+  
+}
+
+.caja-roja {
+  background-color: lightcoral;
+  margin-left: 16px;
+  padding-top: 16px;
+}

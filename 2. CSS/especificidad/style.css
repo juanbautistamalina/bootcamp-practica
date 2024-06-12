@@ -1,0 +1,14 @@
+body{
+    font-family: sans-serif;
+    color: #666;;
+    background: linear-gradient(#888, #fff);
+    height: 100vh;
+}
+
+h1{
+    text-align: center;
+}
+
+#span-id{
+    color: #333
+}

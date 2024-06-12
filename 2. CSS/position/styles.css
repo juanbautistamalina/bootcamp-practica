@@ -1,0 +1,59 @@
+body{
+    background-color: #777;
+}
+
+div{
+    width: 100px;
+    height: 100px;
+    font-size: 30px;
+    position: absolute;
+    background-color: yellow;
+}
+
+.contenedor{
+    position: relative;
+    background: green;
+    width: 450px;
+    height: 450px;
+    margin: auto;
+}
+
+.caja1, .caja2, .caja3, .caja4, .caja5{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-family: sans-serif;
+}
+
+.caja1{
+    left: 0;
+}
+
+.caja2{
+    right: 0;
+
+}
+
+.caja3{ 
+    bottom: 0;
+
+}
+
+.caja4{
+    right: 0;
+    bottom: 0;
+}
+
+.caja5{
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    background-color: red;
+    text-align: center;
+}
+
+
+

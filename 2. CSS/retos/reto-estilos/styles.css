@@ -1,0 +1,37 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa&display=swap');
+
+body{
+    background: #694f31;
+    margin: 0;
+    padding: 0;
+    font-family: 'Comfortaa', sans-serif;
+    text-align: center
+}
+
+header{
+    background-image: url(img/wallpaper.png);
+    text-align: center;
+    padding: 50px;
+    color: white;
+}
+
+hr{
+    width: 250px;
+}
+
+img{
+    width: 300px;
+    margin-top: 40px;
+}
+
+footer{
+    margin-top: 60px;
+    padding: 20px;
+    background: chocolate;
+    font-style: italic;
+}
+
+a{
+    text-decoration: none;
+    color: lightblue;
+}

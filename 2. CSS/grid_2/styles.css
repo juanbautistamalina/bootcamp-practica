@@ -1,0 +1,21 @@
+.container {
+    background-color: #666;
+    border: 2px solid #000;
+    display: grid;
+    grid-template-columns: repeat(2, 300px);
+    grid-template-rows: repeat(4, 50px);
+    gap: 1rem; 
+    padding: 1rem;
+}
+
+.container div{
+    color: #fff;
+    font-family: sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    background-color: #333;
+    border-radius: 50px;
+    width: 200px;
+}

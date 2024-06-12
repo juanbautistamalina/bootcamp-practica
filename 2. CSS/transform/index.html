@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transform</title>
+    <style>
+
+        .contenedor{
+            display: flex;
+            border: 2px solid #000;
+            background-color: #666;
+        }
+
+        .caja, .marco{
+            width: 100px;
+            height: 100px;
+            background-color: lightblue;
+            display: inline-block;
+            margin: 30px;
+        }
+
+        .marco{
+            box-sizing: border-box;
+            border: 5px dashed #000;
+            background-color: #f989;
+        }
+
+        .caja{
+            transition: transform 1s ease;
+            opacity: 0.8;
+        }
+
+        html:hover{
+            .caja{
+                transform: translateX(160px);
+            }
+                
+            
+        }
+
+
+    </style>
+</head>
+<body>
+    <div class="contenedor">
+        <div class="caja"></div>
+        <div class="marco"></div>
+    </div>
+
+</body>
+</html>
