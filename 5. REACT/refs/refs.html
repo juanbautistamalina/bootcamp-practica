@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Refs</title>
+
+    <link rel="stylesheet" href="styles.css">
+
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+    <!-- JSX -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+
+<body>
+    <div id="app"></div>
+    <script type="text/babel">
+
+
+        function EjemploRefs() {
+            const [inputText, setInputText] = React.useState('');
+            const inputEl = React.useRef(null);
+
+            function enClick() {
+                inputEl.current.focus();
+            }
+
+            return (
+                <div>
+                    <input
+                        type="text"
+                        ref={inputEl}
+                        value={inputText}
+                        onChange={(e) => setInputText(e.target.value)} />
+                    <button
+                        onClick={enClick}>
+                        Enfocar input
+                    </button>
+                </div>
+            );
+        }
+
+        ReactDOM.render(<EjemploRefs />, document.querySelector("#app"))
+    </script>
+</body>
+
+</html>

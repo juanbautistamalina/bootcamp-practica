@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <title>Reto Estados</title>
+    <link rel="stylesheet" href="styles.css">
+
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+    <!-- JSX -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+
+        function Producto(props) {
+            const { imagen, titulo, descripcion, contador } = props;
+            return (
+                <div className="card">
+                    <img src={imagen} />
+                    <h1>{titulo}</h1>
+                    <p>{descripcion}</p>
+                    <Contador />
+                </div>
+            )
+        }
+
+        function Contador() {
+            const [contador, setContador] = React.useState(0);
+
+            const incrementarContador = () => {
+                setContador(contador + 1);
+            }
+
+            const disminuirContador = () => {
+                if (contador > 0) {
+                    setContador(contador - 1);
+                }
+            }
+
+            return (
+                <div className="contador">
+                    <button onClick={disminuirContador}>-</button>
+                    <p>{contador}</p>
+                    <button onClick={incrementarContador}>+</button>
+                </div>
+            )
+        }
+
+        function App() {
+            return (
+                <>
+                    <Producto
+                        imagen="img/producto.png"
+                        titulo="Consola de Videojuegos"
+                        descripcion="Descripción del producto 1" />
+
+                    <Producto
+                        imagen="img/producto2.png"
+                        titulo="Laptop"
+                        descripcion="Descripción del producto 2" />
+
+                    <Producto
+                        imagen="img/producto3.png"
+                        titulo="iPad"
+                        descripcion="Descripción del producto 3" />
+                </>
+            )
+
+        }
+        ReactDOM.render(<App />, document.getElementById("root"))
+    </script>
+</body>
+</html>

@@ -1,0 +1,64 @@
+*{
+    font-family: sans-serif;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    color: #fff;
+}
+
+body{
+    background: #141414;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contenedor-peliculas{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+}
+
+.card{
+    width: 250px;
+    background: #2f2f2f;
+    border-radius: 10px;
+}
+
+.caratula{
+    width: 100%;
+    border-radius: 10px 10px 0 0;
+}
+
+.contenedor-interno{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 30px;
+    padding: 10px;
+}
+
+.contenedor-interno span{
+    font-weight: 600;
+}
+
+.contenedor-interno button{
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    background: #202020;
+    border: 2px solid #ffffff;
+    cursor: pointer;
+    font-size: 1.5em;
+}
+
+.descripcion{
+    padding: 15px;
+    color: #888;
+    font-size: 0.8em;
+    line-height: 1.4em;
+}
+

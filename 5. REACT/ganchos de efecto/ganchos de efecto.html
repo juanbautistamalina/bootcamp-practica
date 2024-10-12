@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Ganchos de Efecto</title>
+
+    <link rel="stylesheet" href="styles.css">
+
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+    <!-- JSX -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+
+        /*
+            Crea el componente funcional Categoria en el que empieces inicializando el estado de categoria con un arreglo vacío utilizando React.useState. Posteriomente utiliza el gancho de efecto para que la primera vez que se cargue el componente se llame a la función asincrona fetchCategorias la cual realiza una promesa a 'https://categorías.com/categoria' y guarda su contenido en la constante respuesta, después en la constante datos guarda tu respuesta en formato json, actualiza a setCategoria con los datos y llama a la función fetchCategorias. Posteriormente retorna la lista no ordenada de categoria y recorrela recibiendo a cat e imprime cat.title en cada item, asimismo utiliza cat.id como key de tu li. Renderiza el componente en el elemento cuyo id sea 'root'.
+        */
+
+        const Categoria = () => {
+            const [categoria, setCategoria] = React.useState([]); // Estado inicializado con un arreglo vacío
+
+            // Función asincrónica para obtener las categorías
+            const fetchCategorias = async () => {
+                try {
+                    const respuesta = await fetch('https://categorías.com/categoria'); // Realiza la petición a la API
+                    const datos = await respuesta.json(); // Convierte la respuesta a formato JSON
+                    setCategoria(datos); // Actualiza el estado con los datos obtenidos
+                } catch (error) {
+                    console.error("Error al obtener las categorías:", error);
+                }
+            };
+
+            // Gancho de efecto para que la función se ejecute solo la primera vez que se carga el componente
+            React.useEffect(() => {
+                fetchCategorias();
+            }, []); // [] asegura que solo se ejecute una vez
+
+            return (
+                <ul>
+                    {categoria.map((cat) => (
+                        <li key={cat.id}>{cat.title}</li> // Mapea cada categoría y muestra el título
+                    ))}
+                </ul>
+            );
+        };
+
+        function App() {
+            return (
+                <>
+                    <Categoria />
+                </>
+            )
+
+        }
+        ReactDOM.render(<App />, document.getElementById("root"))
+    </script>
+</body>
+
+</html>

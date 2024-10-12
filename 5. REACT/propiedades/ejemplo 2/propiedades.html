@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Propiedades</title>
+
+    <link rel="stylesheet" href="styles.css">
+
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+    <!-- JSX -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+
+
+        function Notificacion(props) {
+            return (
+                <div className="contenedor">
+                    <div className="contenedor-img">
+                        <img className="avatar" src="./img/user.png" alt="Foto de Perfil" />
+                    </div>
+                    <div className="info">
+                        <span>
+                            <strong>
+                                {props.nombre}</strong> te mencionó en un comentario en <strong>{props.grupo}
+                            </strong>
+                            <div className="circle"></div>
+                        </span>
+                    </div>
+                </div>
+            )
+        }
+
+
+        function App() {
+            return (
+                <>
+                    <Notificacion nombre="Juan" grupo="Programadores" />
+                    <Notificacion nombre="Gastón" grupo="GYM" />
+                    <Notificacion nombre="Walter" grupo="Runners" />
+                </>
+            )
+
+        }
+        ReactDOM.render(<App />, document.getElementById("root"))
+    </script>
+</body>
+</html>

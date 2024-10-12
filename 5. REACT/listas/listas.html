@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Listas</title>
+
+    <link rel="stylesheet" href="styles.css">
+
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+    <!-- JSX -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+
+        const juegos = [
+            {
+                nombre: '8 Ball Pool',
+                key: 1,
+                img: "./img/logo1.png"
+            },
+            {
+                nombre: 'Domino Jogatina',
+                key: 2,
+                img: "./img/logo2.png"
+            },
+            {
+                nombre: 'Preguntados',
+                key: 3,
+                img: "./img/logo3.png"
+            }
+        ];
+
+        function Accesos(props) {
+            const { juegos } = props;
+            return (
+                <>
+                    <h1>Tus Accesos Directos</h1>
+                    <ul>
+                        {juegos.map((juego) => (
+                            <li key={juego.key}><img src={juego.img} />{juego.nombre}</li>)
+                        )}
+                    </ul>
+                </>
+            )
+        }
+
+        function App() {
+            return (
+                <>
+                    <Accesos juegos={juegos}/>
+                </>
+            )
+
+        }
+        ReactDOM.render(<App />, document.getElementById("root"))
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Reto Formulario</title>
+    <link rel="stylesheet" href="styles.css">
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+    <!-- JSX -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+
+        function Formulario() {
+
+            const [nombre, setNombre] = React.useState("");
+            const [email, setEmail] = React.useState("");
+            const [mensaje, setMensaje] = React.useState("");
+
+            const cambiarNombre = (e) => {
+                setNombre(e.target.value);
+            }
+
+            const cambiarEmail = (e) => {
+                setEmail(e.target.value);
+            }
+
+            const cambiarMensaje = (e) => {
+                setMensaje(e.target.value);
+            }
+
+
+            const enviar = (e) => {
+                e.preventDefault();
+                alert(`Datos enviados correctamente: 
+- Nombre: ${nombre}
+- Email: ${email}
+- Mensaje: ${mensaje}
+            `)
+            }
+
+
+            return (
+                <div className="card">
+                    <h1>Formulario</h1>
+                    <form>
+                        <label htmlFor="name">Nombre: </label>
+                        <input onChange={cambiarNombre} id="name" type="text" value={nombre} />
+                        <label htmlFor="email">Email: </label>
+                        <input onChange={cambiarEmail} id="email" type="email" value={email} />
+                        <label>Mensaje: </label>
+                        <textarea onChange={cambiarMensaje} value={mensaje} />
+
+                        <button className="btn-enviar" onClick={enviar}>Enviar</button>
+                    </form>
+                </div>
+            )
+        }
+
+        function App() {
+            return (
+                <>
+                    <Formulario />
+                </>
+            )
+
+        }
+        ReactDOM.render(<App />, document.getElementById("root"))
+    </script>
+</body>
+
+</html>

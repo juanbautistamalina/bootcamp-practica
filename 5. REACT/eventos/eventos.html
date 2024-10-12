@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Eventos</title>
+
+    <link rel="stylesheet" href="styles.css">
+
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+    <!-- JSX -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+
+
+        function Formulario(props) {
+
+            let correo;
+            let pass;
+
+            const cambiarCorreo = (e) => {
+                correo = e.target.value;
+            }
+
+            const cambiarClave = (e) => {
+                pass = e.target.value;
+            }
+
+
+            const onSubmit = () => {
+                registrarDatos()
+            }
+
+            const registrarDatos = () => {
+                event.preventDefault();
+                alert("Correo: " + correo + ", Contraseña: " + pass)
+            }
+
+            return (
+                <div className="container">
+                    <form>
+                        <input
+                            onChange={cambiarCorreo}
+                            name="correo"
+                            type="email"
+                            placeholder="Correo electrónico o número de teléfono"
+                        />
+                        <input
+                            onChange={cambiarClave}
+                            name="clave"
+                            type="password"
+                            placeholder="Clave"
+                        />
+                        <button onClick={onSubmit} type="submit">Iniciar sesión</button>
+                    </form>
+                    <a href="#">¿Olvidaste tu contraseña?</a>
+                </div>
+            )
+        }
+
+
+
+        function App() {
+            return (
+                <>
+                    <Formulario />
+                </>
+            )
+
+        }
+        ReactDOM.render(<App />, document.getElementById("root"))
+    </script>
+</body>
+
+</html>

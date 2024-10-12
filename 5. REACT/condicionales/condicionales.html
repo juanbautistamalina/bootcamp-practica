@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Condicionales</title>
+
+    <link rel="stylesheet" href="styles.css">
+
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+    <!-- JSX -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+        
+        
+        function SingUp(props) {
+            if (props.sesion) {
+                return (
+                    <form>
+                        <input type="email" placeholder="Correo" />    
+                        <input type="password" placeholder="Contraseña" /> 
+                        <button type="submit">Enviar</button> 
+                    </form>
+                );
+            } else {
+                return null;
+            }
+        }
+
+        function App() {
+            const [sesion, setSesion] = React.useState(false);
+
+            const funcionalidadBtn = () => {
+                setSesion(!sesion); 
+            };
+
+            return (
+                <div>
+                    <button onClick={funcionalidadBtn}>
+                        SingUp
+                    </button>                 
+                    <SingUp sesion={sesion} /> 
+                </div>
+            );
+        }
+
+        ReactDOM.render(<App />, document.getElementById("root"));
+    </script>
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Composicion</title>
+
+    <link rel="stylesheet" href="styles.css">
+
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+    <!-- JSX -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+        /*
+        Crea el componente funcional Post el cual recibe props y retorna un div principal con 4 divs, el primero con la imagen de usuario, el segundo con un h1 con el nombre del usuario y una etiqueta p con su información personal, el tercero con un contenido hijo cualquiera y el cuarto con los botones: Recomendar, Comentar, Compartir y enviar. Crea el componente Seccion el cual retorna el componente Post con las propiedades imagen="#", usuario="Jorge Sanchez", info="Estudiante de desarrollo de software" y el contenido de un div principal con una etiqueta p con el texto 'Mi primera página web con React' y una imagen, utiliza src="#" en tus imágenes. Por último renderiza el componente Seccion en el elemento con el id 'root'.
+        */
+
+        function Post(props) {
+            return (
+                <div>
+                    <div><img src={props.imagen} /></div>
+                    <div>
+                        <h1>{props.usuario}</h1>
+                        <p>{props.info}</p>
+                    </div>
+                    <div>{props.children}</div>
+                    <div>
+                        <button>Recomendar</button>
+                        <button>Comentar</button>
+                        <button>Compartir</button>
+                        <button>Enviar</button>
+                    </div>
+                </div>
+            )
+        }
+
+        function Seccion() {
+            return (
+                <Post
+                    imagen="#"
+                    usuario="Jorge Sanchez"
+                    info="Estudiante de desarrollo de software">
+                    <div>
+                        <p>Mi primera página web con React</p>
+                        <img src="#" />
+                    </div>
+                </Post>
+            )
+        }
+
+        function App() {
+            return (
+                <>
+                    <Seccion />
+                </>
+            )
+
+        }
+        ReactDOM.render(<App />, document.getElementById("root"))
+    </script>
+</body>
+
+</html>

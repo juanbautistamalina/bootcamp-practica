@@ -1,0 +1,50 @@
+*{
+    font-family: sans-serif;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    color: #ddd;
+}
+
+body{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #222;
+}
+
+.red{
+    background: #77172e;
+}
+
+.yellow{
+    background: #7c4a03;
+}
+
+.blue{
+    background: #256377;
+}
+
+
+.contenedor{
+    display: inline-block;
+    padding: 20px;
+    margin: 10px;
+    border-radius: 12px;
+}
+
+.titulo h1{
+    font-size: 1.3em;
+}
+
+.contenido p{
+    font-size: 0.8em;
+    margin-top: 10px;
+}
+
+.hora p{
+    font-size: 0.7em;
+    margin-top: 30px;
+}

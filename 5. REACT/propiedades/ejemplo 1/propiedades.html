@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Propiedades</title>
+
+    <link rel="stylesheet" href="styles.css">
+
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+    <!-- JSX -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+
+
+        function Bienvenido(props){
+            return (
+            <div>
+                <h1>Bienvenido {props.name}</h1>
+                <form>
+                    <input type="text" value={props.name} className="name"/>
+                    <input type="email" placeholder="email@gmail.com"className="email"/>
+                    <button>Iniciar Sesión</button>
+                </form>
+                </div>    
+           
+            
+            )
+        }
+
+
+        function App(){
+            return(
+                <>
+                    <Bienvenido name="Juan"/>
+                </>
+            )
+
+        }
+        ReactDOM.render(<App />, document.getElementById("root"))
+    </script>
+</body>
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Formularios</title>
+
+    <link rel="stylesheet" href="styles.css">
+
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+    <!-- JSX -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+
+
+        function NuevaClave() {
+            const [antiguaClave, setAntiguaClave] = React.useState("");
+            const [nuevaClave, setNuevaClave] = React.useState("");
+            const [confirmacion, setConfirmacion] = React.useState("");
+
+            const [mostrarMsg, setMostrarMsg] = React.useState(false); 
+
+
+            const manejarCambioClaveAntigua = (e) =>{
+                setAntiguaClave(e.target.value)
+            }
+
+            const manejarCambioClaveNueva = (e) =>{
+                setNuevaClave(e.target.value)
+                if (!mostrarMsg) setMostrarMsg(true); // Mostrar el mensaje cuando comienza a escribir
+            }
+
+            const manejarCambioClaveConfirmacion = (e) =>{
+                setConfirmacion(e.target.value)
+                if (!mostrarMsg) setMostrarMsg(true); // Mostrar el mensaje cuando comienza a escribir
+            }
+
+            const mensaje = () => {
+                if (nuevaClave == confirmacion) {
+                    return <small className="green">Las claves coinciden</small>;
+                } else {
+                    return <small className="red">Asegúrate de que ambas claves coincidan</small>;
+                }
+            }
+
+            const enviarFormulario = (e) =>{
+                e.preventDefault();
+                console.log("Clave antigua: ", antiguaClave)
+                console.log("Clave nueva: ", nuevaClave)
+                console.log("Clave confirmacion: ", confirmacion)
+
+                mensaje();
+            }
+
+            const mostrarMensaje = () =>{
+                setMostrarMsg();
+            }
+
+            return (
+                <form>
+                    <label>Old Password 
+                        <input onChange={manejarCambioClaveAntigua} type="text" value={antiguaClave}/>
+                    </label>
+
+                    <label>New Password 
+                        <input onChange={manejarCambioClaveNueva} type="text" value={nuevaClave} />
+                    </label>
+
+                    <label>Confirm new password 
+                        <input onChange={manejarCambioClaveConfirmacion}  type="text" value={confirmacion} />
+                    </label>
+
+                    {mostrarMsg && <p>{mensaje()}</p>}
+
+                    <button onClick={enviarFormulario}>Change password</button>
+                </form>
+            )
+        }          
+
+        function App() {
+            return (
+                <>
+                    <NuevaClave />
+                </>
+            )
+
+        }
+        ReactDOM.render(<App />, document.getElementById("root"))
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Componentes</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- React -->
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+    <!-- JSX -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+
+        function Pelicula({ titulo, imgSrc, año, descripcion }) {
+            return (
+                <div className="card">
+                    <img className="caratula" src={imgSrc} />
+                    <div className="contenedor-interno">
+                        <span>{año}</span>
+                        <button>+</button>
+                    </div>
+                    <div className="descripcion"><p>{descripcion}</p></div>
+                </div>)
+        }
+
+
+        function ContenedorPeliculas({peliculas}) {
+            return (
+                <section className="contenedor-peliculas">
+                    {peliculas.map((pelicula) => (
+                        <Pelicula
+                            key={pelicula.titulo}
+                            imgSrc={pelicula.imgSrc}
+                            año={pelicula.año}
+                            descripcion={pelicula.descripcion} />))
+                    }
+                </section>
+            )
+        }
+
+        function App() {
+            const peliculas = [
+                {
+                    titulo: "El Club de la Pelea",
+                    imgSrc: "./img/pelicula1.png",
+                    año: 1999,
+                    descripcion: "Un oficinista destacado encuentra un escape para sus sentimientos cuando conoce al misterioso Tyler Durden, con quien crea una violenta sociedad secreta."
+                },
+                {
+                    titulo: "El Viaje de Chihiro",
+                    imgSrc: "./img/pelicula2.png",
+                    año: 2001,
+                    descripcion: "Chihiro se adentra en un mundo mágico reinado por una bruja, donde quienes no obedecen son transformados en animales."
+                },
+                {
+                    titulo: "Bladerunner 2049",
+                    imgSrc: "./img/pelicula3.png",
+                    año: 2017,
+                    descripcion: "El contenido de una tumba atrae el interés de un poderoso magnate. El encargado de la misión es el oficial K, que va en búsqueda de una leyenda perdida."
+                }
+            ]
+
+            return (
+                <ContenedorPeliculas peliculas={peliculas} />
+            )
+        }
+
+        ReactDOM.render(
+            <App />,
+            document.getElementById('root')
+        );
+    </script>
+</body>
+
+</html>

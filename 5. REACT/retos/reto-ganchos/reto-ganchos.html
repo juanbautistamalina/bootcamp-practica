@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Reto Ganchos</title>
+
+    <link rel="stylesheet" href="styles.css">
+
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+    <!-- JSX -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+
+        function Card(props) {
+            const { title, description } = props;
+
+            return (
+                <div className="card">
+                    <h2>{title}</h2>
+                    <p>{description}</p>
+                </div>
+            )
+        }
+
+        function Section() {
+
+            const [usuarios, setUsuarios] = React.useState([]);
+
+            const fetchUsuarios = async () => {
+                try {
+                    const respuesta = await fetch('https://jsonplaceholder.typicode.com/users');
+                    const datos = await respuesta.json();
+                    setUsuarios(datos);
+                } catch (error) {
+                    console.error("Error al obtener los usuarios:", error);
+                }
+            };
+
+            React.useEffect(() => {
+                fetchUsuarios();
+            }, []);
+
+
+            return (
+                <>
+                    <h1>Lista de Usuarios</h1>
+                    <div className="card-container">
+                        {usuarios.map((user) => (
+                            <Card
+                                key={user.id}
+                                title={user.name}
+                                description={user.company.catchPhrase}
+                            />
+                        ))}
+                    </div>
+                </>
+            )
+        }
+
+
+        function App() {
+            return (
+                <>
+                    <Section />
+                </>
+            )
+
+        }
+        ReactDOM.render(<App />, document.getElementById("root"))
+    </script>
+</body>
+
+</html>

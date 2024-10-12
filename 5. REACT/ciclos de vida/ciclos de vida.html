@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Ciclos de Vida</title>
+
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+    <!-- JSX -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+
+        class Detalles extends React.Component {
+            constructor(props) {
+                super(props);
+                this.state = {
+                    data: []
+                };
+            }
+
+            // Se ejecuta cuando el componente se monta
+            componentDidMount() {
+                fetch('https://amazon-api.items.com/data')
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error('Error al obtener los datos');
+                        }
+                        return response.json();
+                    })
+                    .then(data => {
+                        // Actualizar el estado con los datos recibidos
+                        this.setState({ data });
+                    })
+                    .catch(error => {
+                        console.error('Error en la promesa:', error);
+                    });
+            }
+
+            render() {
+                const { data } = this.state;
+
+                return (
+                    <div>
+                        <h1>About this item</h1>
+                        <ul>
+                            {data.map(item => (
+                                <li key={item.id}>{item.description}</li>
+                            ))}
+                        </ul>
+                    </div>
+                );
+            }
+        }
+        function App() {
+            return (
+                <>
+                    <Detalles />
+                </>
+            )
+
+        }
+        ReactDOM.render(<App />, document.getElementById("root"))
+    </script>
+</body>
+
+</html>

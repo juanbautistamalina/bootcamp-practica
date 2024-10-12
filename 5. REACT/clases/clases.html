@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Componente de Clase</title>
+
+    <link rel="stylesheet" href="styles.css">
+
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+    <!-- JSX -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+
+
+        class Nota extends React.Component{
+            render(){
+                return(
+                <div className={`contenedor ${this.props.color}`}>
+                    <div className="titulo"><h1>{this.props.titulo}</h1></div>
+                    <div className="contenido">
+                        <p>{this.props.contenido}</p>
+                    </div>   
+                    <div className="hora">
+                        <p>{this.props.hora}</p>
+                    </div>       
+                </div>
+                )
+            }
+        }
+
+
+        function App(){
+            return(
+                <>
+                    <Nota color="red" titulo="Estudiar Inglés" contenido="Leer por dos horas" hora="Hoy, 18:00"/>
+                    <Nota color="yellow" titulo="Ir al Gimnasio" contenido="Entrenar por una hora" hora="7:00"/>
+                    <Nota color="blue" titulo="Salir a Correr" contenido="Correr 10km" hora="5:00"/>
+
+                </>
+            )
+
+        }
+        ReactDOM.render(<App />, document.getElementById("root"))
+    </script>
+</body>
+</html>
